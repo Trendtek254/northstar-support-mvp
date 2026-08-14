@@ -60,5 +60,5 @@
 | **Morgan Nyanga'u(Lead)** | System Architecture & Repo Admin | Setup repo, GitHub board, stock lookup logic (`NS-01`, `NS-05`, `NS-09`) |
 | **** | Data Architecture & Docs | Mock databases, Streamlit UI, Go-Live Note (`NS-02`, `NS-06`, `NS-10`) |
 | **Kevin Kipyegon** | Core Logic & API Integration | Order status backend, UI integration, audit log (`NS-03`, `NS-07`, `NS-11`) |
-| **Member D** | Business Rules & QA | Return eligibility workflow, unit tests script (`NS-04`, `NS-08`) |# northstar-support-mvp
+| **Lewis Mwanzi | Business Rules & QA | Return eligibility workflow, unit tests script (`NS-04`, `NS-08`) |# northstar-support-mvp
 
