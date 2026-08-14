@@ -1,7 +1,7 @@
 # 📜 Team Charter: Northstar Sprint MVP
 
-**Pod Name / Number:** Pod [Insert Number/Name]  
-**Repository:** [Insert GitHub Repo Link]  
+**Pod Name / Number:** Pod PLP Group 28  
+**Repository:** https://github.com/Trendtek254/northstar-support-mvp  
 **Date:** August 2026  
 
 ---
@@ -18,8 +18,8 @@
 
 ## 2. Working Agreements & Communication
 
-* **Primary Communication Channel:** Slack / Discord for async updates; daily 15-minute standup meeting at 09:30 AM.
-* **Core Collaboration Hours:** All team members available online between 10:00 AM – 3:00 PM.
+* **Primary Communication Channel:** WhatsApp; daily 30-minute standup meeting at 6.00PM.
+* **Core Collaboration Hours:** All team members available online between 8:00 PM – 1:00 AM.
 * **Decision Making Process:** Majority vote wins. If tied after 15 minutes of technical discussion, the Task Lead/Owner makes the final call.
 
 ---
@@ -57,8 +57,8 @@
 
 | Team Member | Role Focus | Primary Task Responsibilities |
 | :--- | :--- | :--- |
-| **Member A (Lead)** | System Architecture & Repo Admin | Setup repo, GitHub board, stock lookup logic (`NS-01`, `NS-05`, `NS-09`) |
-| **Member B** | Data Architecture & Docs | Mock databases, Streamlit UI, Go-Live Note (`NS-02`, `NS-06`, `NS-10`) |
+| **Morgan Nyanga'u(Lead)** | System Architecture & Repo Admin | Setup repo, GitHub board, stock lookup logic (`NS-01`, `NS-05`, `NS-09`) |
+| **** | Data Architecture & Docs | Mock databases, Streamlit UI, Go-Live Note (`NS-02`, `NS-06`, `NS-10`) |
 | **Member C** | Core Logic & API Integration | Order status backend, UI integration, audit log (`NS-03`, `NS-07`, `NS-11`) |
 | **Member D** | Business Rules & QA | Return eligibility workflow, unit tests script (`NS-04`, `NS-08`) |# northstar-support-mvp
 
