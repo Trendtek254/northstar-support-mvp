@@ -1,0 +1,86 @@
+[
+  {
+    "sku": "NS-APP-001",
+    "name": "Classic Crewneck T-Shirt",
+    "category": "Apparel",
+    "size": "M",
+    "stock_count": 142
+  },
+  {
+    "sku": "NS-APP-002",
+    "name": "Classic Crewneck T-Shirt",
+    "category": "Apparel",
+    "size": "L",
+    "stock_count": 98
+  },
+  {
+    "sku": "NS-APP-010",
+    "name": "Slim Fit Denim Jeans",
+    "category": "Apparel",
+    "size": "32",
+    "stock_count": 54
+  },
+  {
+    "sku": "NS-APP-011",
+    "name": "Slim Fit Denim Jeans",
+    "category": "Apparel",
+    "size": "34",
+    "stock_count": 61
+  },
+  {
+    "sku": "NS-FTW-020",
+    "name": "Running Sneakers",
+    "category": "Footwear",
+    "size": "9",
+    "stock_count": 27
+  },
+  {
+    "sku": "NS-FTW-021",
+    "name": "Running Sneakers",
+    "category": "Footwear",
+    "size": "10",
+    "stock_count": 19
+  },
+  {
+    "sku": "NS-ACC-030",
+    "name": "Canvas Backpack",
+    "category": "Accessories",
+    "size": "One Size",
+    "stock_count": 76
+  },
+  {
+    "sku": "NS-ACC-031",
+    "name": "Leather Belt",
+    "category": "Accessories",
+    "size": "M",
+    "stock_count": 5
+  },
+  {
+    "sku": "NS-OUT-040",
+    "name": "Insulated Rain Jacket",
+    "category": "Outerwear",
+    "size": "S",
+    "stock_count": 12
+  },
+  {
+    "sku": "NS-OUT-041",
+    "name": "Insulated Rain Jacket",
+    "category": "Outerwear",
+    "size": "XL",
+    "stock_count": 0
+  },
+  {
+    "sku": "NS-HDW-050",
+    "name": "Fleece Pullover Hoodie",
+    "category": "Apparel",
+    "size": "L",
+    "stock_count": 33
+  },
+  {
+    "sku": "NS-SPT-060",
+    "name": "Yoga Mat",
+    "category": "Sporting Goods",
+    "size": "Standard",
+    "stock_count": 88
+  }
+]
