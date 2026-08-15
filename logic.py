@@ -1,105 +1,54 @@
-"""
-Core business logic for Northstar Support MVP.
-Covers: order status lookup (NS-03), return eligibility (NS-04),
-and inventory queries (NS-05).
+from data import ORDERS_DB, INVENTORY_DB, RETURN_POLICY_INFO
 
-Currently backed by in-memory sample data. Swap the data sources
-below for a real database/API when available.
-"""
-
-from datetime import date, timedelta
-
-# --- Sample data (replace with real DB/API calls later) ---
-
-ORDERS = {
-    "10234": {"status": "In Transit", "eta_days": 2},
-    "10235": {"status": "Delivered", "eta_days": 0},
-    "10236": {"status": "Processing", "eta_days": 5},
-    "10237": {"status": "Delivered", "eta_days": 0},
-}
-
-PURCHASE_DATES = {
-    "10234": date.today() - timedelta(days=5),
-    "10235": date.today() - timedelta(days=10),
-    "10236": date.today() - timedelta(days=1),
-    "10237": date.today() - timedelta(days=45),  # outside return window
-}
-
-INVENTORY = {
-    "blue t-shirt": 12,
-    "running shoes": 0,
-    "wireless mouse": 34,
-    "coffee mug": 5,
-}
-
-RETURN_WINDOW_DAYS = 30
-
-
-# --- Public functions ---
-
-def get_order_status(order_number: str) -> str:
-    """Look up the status of an order by its order number."""
-    order = ORDERS.get(order_number.strip())
-    if not order:
-        return f"I couldn't find an order matching **{order_number}**. Please double-check the order number."
-
-    status = order["status"]
-    if status == "Delivered":
-        return f"Order **{order_number}** has already been **Delivered**."
-    return (
-        f"Order **{order_number}** is currently **{status}** "
-        f"and expected to arrive in {order['eta_days']} day(s)."
-    )
-
-
-def evaluate_return(question: str, order_number: str = None) -> str:
-    """
-    Evaluate return eligibility. If an order number is provided (or found
-    in the question text), checks against the purchase date and return window.
-    """
-    if not order_number:
-        for token in question.split():
-            cleaned = token.strip("?.,!#")
-            if cleaned in PURCHASE_DATES:
-                order_number = cleaned
-                break
-
-    if not order_number or order_number not in PURCHASE_DATES:
+def check_order_status(order_id: str) -> str:
+    """Task NS-03: Order status lookup logic."""
+    clean_id = order_id.strip().upper()
+    if clean_id in ORDERS_DB:
+        order = ORDERS_DB[clean_id]
         return (
-            "To check return eligibility, please provide your order number "
-            f"(items are eligible for return within {RETURN_WINDOW_DAYS} days of purchase)."
+            f"**Order ID:** {clean_id}\n\n"
+            f"• **Status:** {order['status']}\n"
+            f"• **Carrier:** {order['carrier']}\n"
+            f"• **Tracking Number:** {order['tracking_number']}\n"
+            f"• **Estimated Delivery:** {order['estimated_delivery']}"
         )
+    return f"❌ Order ID `{clean_id}` not found. Please double-check your order number (e.g., ORD1001)."
 
-    purchased_on = PURCHASE_DATES[order_number]
-    days_since = (date.today() - purchased_on).days
+def process_return_info(order_id: str) -> str:
+    """Task NS-04: Returns and refunds deflection logic."""
+    clean_id = order_id.strip().upper()
+    if clean_id in ORDERS_DB:
+        order = ORDERS_DB[clean_id]
+        if order["status"] == "Delivered":
+            return (
+                f"✅ **Order {clean_id} is eligible for return!**\n\n"
+                f"**Instructions:**\n"
+                f"1. Pack items: `{', '.join(order['items'])}` in original packaging.\n"
+                f"2. Your return label is ready to download below.\n"
+                f"3. Drop off at any authorized shipping center.\n\n"
+                f"*Refunds take 3-5 business days after receipt.*"
+            )
+        else:
+            return f"⚠️ Order `{clean_id}` has not been marked as delivered yet (Current status: {order['status']}). Returns can only be processed after delivery."
+    
+    return f"ℹ️ **General Return Policy:**\n\n{RETURN_POLICY_INFO}"
 
-    if days_since <= RETURN_WINDOW_DAYS:
-        remaining = RETURN_WINDOW_DAYS - days_since
-        return (
-            f"Order **{order_number}** is **eligible** for return "
-            f"({remaining} day(s) remaining in the return window)."
-        )
-    return (
-        f"Order **{order_number}** is **not eligible** for return — "
-        f"it was purchased {days_since} days ago, which exceeds the "
-        f"{RETURN_WINDOW_DAYS}-day return window."
-    )
-
-
-def query_inventory(item_name: str) -> str:
-    """Check current stock level for an item by name (case-insensitive match)."""
-    key = item_name.strip().lower()
-
-    if key in INVENTORY:
-        count = INVENTORY[key]
-        if count == 0:
-            return f"**{item_name}** is currently **out of stock**."
-        return f"**{item_name}** currently has **{count} unit(s)** in stock."
-
-    matches = [name for name in INVENTORY if key in name or name in key]
-    if matches:
-        best = matches[0]
-        count = INVENTORY[best]
-        return f"Did you mean **{best}**? It has **{count} unit(s)** in stock."
-
-    return f"I couldn't find **{item_name}** in our inventory system."
+def check_stock(product_name: str, size: str) -> str:
+    """Task NS-05: Stock availability query logic."""
+    prod_clean = product_name.strip().lower()
+    size_clean = size.strip()
+    
+    if prod_clean in INVENTORY_DB:
+        sizes = INVENTORY_DB[prod_clean]
+        if size_clean in sizes:
+            count = sizes[size_clean]
+            if count > 0:
+                return f"✅ **In Stock!** We currently have **{count}** unit(s) of '{product_name.title()}' in size `{size_clean}`."
+            else:
+                other_sizes = [s for s, c in sizes.items() if c > 0]
+                alt_msg = f"Available sizes: {', '.join(other_sizes)}" if other_sizes else "Out of stock in all sizes."
+                return f"❌ **Out of Stock.** Size `{size_clean}` is currently out of stock. ({alt_msg})"
+        else:
+            return f"⚠️ Size `{size_clean}` is not available for this item. Options: {', '.join(sizes.keys())}."
+    
+    return f"❌ Product '{product_name}' not found in our catalog."
