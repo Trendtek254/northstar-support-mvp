@@ -1,0 +1,29 @@
+b131a67 | Morgan | 2026-08-15 | Create GO_LIVE_NOTE.md
+c548866 | Kevin Kipyegon | 2026-08-15 | Merge branch main
+cc312f1 | Kevin Kipyegon | 2026-08-15 | Merge branch 'main' of https://github.com/Trendtek254/northstar-support-mvp
+1d7ffe4 | Morgan | 2026-08-15 | changes to code
+6a0e67b | Kevin Kipyegon | 2026-08-15 | NS-07/NS-03: wire UI to real order/return/inventory logic
+82fb876 | Morgan | 2026-08-15 | Merge branch 'main' of https://github.com/Trendtek254/northstar-support-mvp
+97b70d7 | Morgan | 2026-08-15 | done with the mock data
+1222608 | Morgan | 2026-08-15 | Create logic.py
+62e5c49 | Morgan | 2026-08-15 | Delete logic.py
+304c6d4 | Kevin Kipyegon | 2026-08-15 | Merge branch 'main' of https://github.com/Trendtek254/northstar-support-mvp
+86e95bc | Kevin Kipyegon | 2026-08-15 | NS-07: connect UI chat input to mock backend handlers
+86f819c | Morgan | 2026-08-15 | Create data.py
+1180d22 | Morgan | 2026-08-15 | Merging
+874f4b8 | Morgan | 2026-08-14 | Merging to the main
+c490bcb | Kevin | 2026-08-14 | Delete data directory
+6a7b96d | Kevin | 2026-08-14 | Create inventory.json
+e80e682 | Kevin | 2026-08-14 | Create orders.json
+a0672e1 | Esther Bwari | 2026-08-14 | Update CHARTER.md
+2217996 | mwanzilewis | 2026-08-14 | Update CHARTER.md
+482b861 | mwanzilewis | 2026-08-14 | Create python-app.yml
+904b67d | Kevin | 2026-08-14 | Merge pull request #3 from Trendtek254/KevinKay-art-patch-3
+3784e50 | Kevin | 2026-08-14 | Update CHARTER.md
+d2f3005 | Kevin | 2026-08-14 | Merge pull request #2 from Trendtek254/KevinKay-art-patch-2
+744264c | Kevin | 2026-08-14 | Create test_sample.py
+33dc87d | Kevin | 2026-08-14 | Merge pull request #1 from Trendtek254/KevinKay-art-patch-1
+aeae7fa | Kevin | 2026-08-14 | Create README.md
+1af6710 | Morgan | 2026-08-14 | Update team charter with new pod details and roles
+a055e9f | Morgan | 2026-08-14 | Add team charter for Northstar Sprint MVP
+2cd8f40 | Morgan | 2026-08-13 | Initial commit
